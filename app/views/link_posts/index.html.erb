@@ -1,0 +1,26 @@
+<h1>Listing link_posts</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Link</th>
+    <th>Created</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @link_posts.each do |link_post| %>
+  <tr>
+    <td><%= link_post.title %></td>
+    <td><a href="<%= link_post.link %>"><%= link_post.link %></a></td>
+    <td><%= link_post.created_at %></td>
+    <td><%= link_to 'Show', link_post %></td>
+    <td><%= link_to 'Edit', edit_link_post_path(link_post) %></td>
+    <td><%= link_to 'Destroy', link_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Link post', new_link_post_path %>
